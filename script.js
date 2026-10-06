@@ -32,6 +32,25 @@ function productoCifras4(n) {
   return producto;
 }
 
+function calcular() {
+  var texto = document.getElementById("numero").value;
+  var n = Number(texto);
+  var resultado = document.getElementById("resultado");
+
+  if (texto === "" || !Number.isInteger(n)) {
+    resultado.textContent = "Error: escribe un número entero de 4 cifras.";
+    return;
+  }
+
+  var producto = productoCifras4(n);
+
+  if (typeof producto === "string") {
+    resultado.textContent = producto;
+  } else {
+    resultado.textContent = "El producto de las cifras de " + n + " es " + producto + ".";
+  }
+}
+
 console.log(productoCifras4(1234)); // debería imprimir 24
 console.log(productoCifras4(1000)); // debería imprimir 0
 console.log(productoCifras4(9999)); // debería imprimir 6561
